@@ -25,7 +25,8 @@ Focus is at the moment the complete restructuring to a MySQL-database driven
 applikation. For progress see  
  - Network Graph : https://github.com/Duke-Jones/RegulatedNoise/network
  - MySQL Branch : https://github.com/Duke-Jones/RegulatedNoise/tree/MySQL
-
+ - MySQl Commits : https://github.com/Duke-Jones/RegulatedNoise/commits/MySQL
+ 
  
  
 
