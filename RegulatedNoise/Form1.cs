@@ -254,14 +254,6 @@ namespace RegulatedNoise
 
                 _logger.Log("Initialisation complete");
 
-                if (RegulatedNoiseSettings.TestMode)
-                {
-                    //Testing
-                    var testtab = new TabPage("MRmP Test Tab");
-                    var testtb = new MRmPTestTab.MRmPTestTab { Dock = DockStyle.Fill };
-                    testtab.Controls.Add(testtb);
-                    tabCtrlMain.Controls.Add(testtab);
-                }
 
 
                 // two methods with the same functionality 
@@ -749,7 +741,7 @@ namespace RegulatedNoise
                 var gamedirs = new List<string>();
                 foreach (var dir in dirs)
                 {
-                    if (Path.GetFileName(dir).StartsWith("FORC-FDEV"))
+                    if (Path.GetFileName(dir).StartsWith("FORC-FDEV") || Path.GetFileName(dir).StartsWith("elite-dangerous-"))
                     {
                         gamedirs.Add(dir);
                     }
@@ -763,7 +755,7 @@ namespace RegulatedNoise
                     continue;
                 }
                 
-                var MBResult = MsgBox.Show("Couldn't find a FORC-FDEV.. directory in the Frontier Products dir, please try again...", "", MessageBoxButtons.RetryCancel);
+                var MBResult = MsgBox.Show("Couldn't find a FORC-FDEV or elite-dangerous-.. directory in the Frontier Products dir, please try again...", "", MessageBoxButtons.RetryCancel);
 
                 if (MBResult == System.Windows.Forms.DialogResult.Cancel)
                     Application.Exit();

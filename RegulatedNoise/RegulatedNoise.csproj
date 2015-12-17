@@ -166,12 +166,6 @@
     <Compile Include="Enums and Utility Classes\SerializableDictionary.cs" />
     <Compile Include="Enums and Utility Classes\StationHistory.cs" />
     <Compile Include="Enums and Utility Classes\UnixTimeStamp.cs" />
-    <Compile Include="MRmPTestTab\MRmPTestTab.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="MRmPTestTab\MRmPTestTab.Designer.cs">
-      <DependentUpon>MRmPTestTab.cs</DependentUpon>
-    </Compile>
     <Compile Include="Brainerous Pixeltest\Picturedata.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -293,9 +287,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Help Forms\HelpOCR.resx">
       <DependentUpon>HelpOCR.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MRmPTestTab\MRmPTestTab.resx">
-      <DependentUpon>MRmPTestTab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Brainerous Pixeltest\Picturedata.resx">
       <DependentUpon>Picturedata.cs</DependentUpon>

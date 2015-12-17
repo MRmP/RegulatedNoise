@@ -252,6 +252,7 @@ namespace RegulatedNoise
                     b.Save(".//OCR Correction Images//" + rowIds[rowCtr] + ".png");
                 }
 
+                
                 int columnCounter = 0;
                 while (columnCounter < 8)
                 {
@@ -357,6 +358,7 @@ namespace RegulatedNoise
                             c[5] = (RNGraphics.Crop(_bTrimmed_4_OCR, new Rectangle(left - 1, startRow - 1, width, heightRow)));
                             c[6] = (RNGraphics.Crop(_bTrimmed_4_OCR, new Rectangle(left, startRow + 2, width, heightRow - 2)));
 
+                           
                             var t = new string[c.Length];
                             var cf = new float[c.Length];
 
@@ -388,9 +390,33 @@ namespace RegulatedNoise
                                     break;
                                 case 5:
                                 case 7:
-                                    t[result] = t[result].Replace(" ", "").Replace("-", "");
-                                    if (t[result] == "HIGH" || t[result] == "MED" || t[result] == "LOW")
+                                    var darkpixels = 0;
+                                    for (int i = 0; i < c[result].Height; i++)
+                                        for (int j = 0; j < c[result].Width; j++)
+                                            if (c[result].GetPixel(j, i).GetBrightness() < Form1.RegulatedNoiseSettings.EBPixelThreshold)
+                                                darkpixels++;
+
+                                    var ratio = (float) c[result].Height*c[result].Width/darkpixels;
+                                    if (darkpixels < 100)
                                     {
+                                        //0
+                                    }
+                                    else if (ratio < 2)
+                                    {
+                                        //3
+                                        t[result] = "HIGH";
+                                        cf[result] = 1;
+                                    }
+                                    else if (ratio < 2.6)
+                                    {
+                                        //2
+                                        t[result] = "MED";
+                                        cf[result] = 1;
+                                    }
+                                    else
+                                    {
+                                        //1
+                                        t[result] = "LOW";
                                         cf[result] = 1;
                                     }
                                     break;

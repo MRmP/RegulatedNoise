@@ -23,3 +23,6 @@
 # If using the old MSBuild-Integrated Package Restore, uncomment this:
 #!**/packages/repositories.config
 
+*.json
+RegulatedNoise/Data/Commodities_own.xml
+RegulatedNoise/Data/Commodities_own_bak.xml
