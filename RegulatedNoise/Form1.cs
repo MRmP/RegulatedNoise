@@ -4612,8 +4612,10 @@ namespace RegulatedNoise
 
                     if (Directory.Exists(appConfigPath))
                     {
-                        var versions = Directory.GetDirectories(appConfigPath).Where(x => x.Contains("FORC-FDEV")).ToList().OrderByDescending(x => x).ToList();
-
+                        //TODO: this is now ugly, we need a better way to choose which directory player is using, he can have both 32 and 64 and the forc fdev dirs available..
+                        List<string> versions = Directory.GetDirectories(appConfigPath).Where(x => x.Contains("FORC-FDEV")).ToList().OrderByDescending(x => x).ToList();
+                        versions.AddRange(Directory.GetDirectories(appConfigPath).Where(x => x.Contains("elite-dangerous-")).ToList().OrderByDescending(x => x).ToList());
+                        
                         if (versions.Count() == 0)
                         {
 #if extScanLog
